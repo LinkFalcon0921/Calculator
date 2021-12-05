@@ -1,9 +1,22 @@
 package com.base.Actions;
 
-public class Calculos {
+import com.base.Actions.helpers.OpersGetter;
+import com.base.Interfaces.OpersDoubles;
 
+/*
+Clase encargade d emantener contacto con la fachada principal y las variables e operacion. 
+*/
+public class Calculos {
+	//Variables de la clase a uso de Fachada.
+	private OpersDoubles operation; 
+	
+	
 	public Calculos() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
+	public void create(int levels) {
+		operation = OpersGetter.Create(levels);
+	}
+	
 }
