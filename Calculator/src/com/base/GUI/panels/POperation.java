@@ -1,9 +1,15 @@
 package com.base.GUI.panels;
 
 import javax.swing.*;
-import com.base.GUI.Stablos;
+
+import com.base.GUI.*;
 
 public class POperation extends JPanel {
+	
+	/**
+	 * Serial value
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	//variables de accion privada.
 	private JLabel labelLV, labelTY;
@@ -13,8 +19,8 @@ public class POperation extends JPanel {
 	 * Create the panel.
 	 * Ingrese el metodo del usuario.
 	 */
-	public POperation(com.base.User.Users l) {
-		setElements(l);
+	public POperation() {
+		setElements();
 	}
 	
 	//Metodo iniciador de design simple.
@@ -27,14 +33,14 @@ public class POperation extends JPanel {
 	}
 	
 	//Agregar elementos adicionales
-	private void setElements(com.base.User.Users l) {
+	private void setElements() {
 		//Propiedad de los objetos
 		init();
 		TextLevel();
 		TextTry();
 		
 		//Agregar JPanel de accion
-		actions = new PActions(l,this);
+		actions = new PActions();
 		add(actions);
 	}
 	

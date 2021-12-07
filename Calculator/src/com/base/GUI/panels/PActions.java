@@ -1,13 +1,16 @@
 package com.base.GUI.panels;
 
 import javax.swing.*;
-import com.base.GUI.Stablos;
+import com.base.GUI.*;
 import com.base.GUI.panels.helpers.ActionKeyPressed;
-
 import java.awt.*;
 
 public class PActions extends JPanel {
 	
+	/**
+	 * Serial value
+	 */
+	private static final long serialVersionUID = 1L;
 	//Variables de asignacion de User
 	private JLabel MY, SY, MN , RS;
 	private JSeparator separator;
@@ -76,12 +79,12 @@ public class PActions extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PActions(com.base.User.Users l,POperation parent) {
-		init(l,parent);
+	public PActions() {
+		init();
 	}
 	
 	//Metodo asignador base
-	private void init(com.base.User.Users l,POperation parent) {
+	private void init() {
 
 		setBounds(X,Y,W,H);
 		setFocusable(true);
@@ -111,7 +114,7 @@ public class PActions extends JPanel {
 			setTextM();
 			SetTextN();
 			setTextS();
-			SetTextR(l,parent);
+			SetTextR();
 			
 		}
 	
@@ -177,7 +180,7 @@ public class PActions extends JPanel {
 	}
 	
 	//AGREGA EL RESULTADO al panel.
-	private void SetTextR(com.base.User.Users usuars,POperation parent) {
+	private void SetTextR() {
 	
 		//Variable Resultado
 		RS = new JLabel("0");
@@ -193,15 +196,17 @@ public class PActions extends JPanel {
 		gbc_RS.gridx = 3;
 		gbc_RS.gridy = 9;
 		
-		//Agregar action of key pressed
-		addListenerRS(usuars,parent);
-		
 		add(RS, gbc_RS);
 		
 	}
-	
-	private void addListenerRS(com.base.User.Users usuars,POperation parent) {
-		this.addKeyListener( new ActionKeyPressed(usuars, parent));
+
+	/**
+	 * Agrega el listener a la clase panel Actions.
+	 * 
+	 * @param parent : Panel que captura el panel.
+	 */
+	public void addListenerRS(BaseApp parent) {
+		this.addKeyListener( new ActionKeyPressed(parent));
 	}
 	
 

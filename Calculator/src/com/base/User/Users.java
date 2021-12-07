@@ -83,9 +83,11 @@ public class Users {
 	public boolean close() {
 		
 		if(Intentos.getAdmin().value() == 0) {
+			
 			Intentos.getAdmin().close();
 			Levels.getAdmin().close();
 			values = null;
+			
 			return true;
 		}
 		

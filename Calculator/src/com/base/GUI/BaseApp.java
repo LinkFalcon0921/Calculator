@@ -4,11 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import com.base.GUI.panels.PActions;
 import com.base.GUI.panels.POperation;
 import com.base.User.Users;
-
-import java.awt.Window.Type;
 
 public class BaseApp {
 
@@ -44,23 +41,32 @@ public class BaseApp {
 	 */
 	private void initialize() {
 		framebase = new JFrame();
-		framebase.setTitle("My_app_set_tittle_flintcore");
+		framebase.setTitle("My_app_set_title_flintcore");
 		framebase.setBounds(330, 200, 810, 575);
 		framebase.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		actions = new Users("");
 		actions.CreateOperation();
-		basePanel = new POperation(actions);
+		
+		basePanel = new POperation();
+		basePanel.getActionsPane().addListenerRS(this);
 		
 		framebase.add(basePanel);
 		
-		setSpaces();
 	}
 	
-	private void setSpaces() {
-		
-		actions.setSpaces(basePanel);
-		
+	
+	public Users getUsers() {
+		return actions;
+	}
+	
+	public POperation getOpers() {
+		return basePanel;
+	}
+	
+	public void close() {
+		framebase.setVisible(false);
+		framebase.dispose();
 	}
 
 }

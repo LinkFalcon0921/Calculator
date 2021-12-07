@@ -26,7 +26,7 @@ public class Intentos implements Uppers{
 
 	// Reduce los intentos
 	public int down() {
-		return (trys > 1) ? --trys : trys;
+		return (trys > 0) ? --trys : trys;
 	}
 
 	// Resetea los intentos

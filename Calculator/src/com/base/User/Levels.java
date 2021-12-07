@@ -4,33 +4,33 @@ import com.base.Interfaces.Uppers;
 
 public class Levels implements Uppers{
 
-	private static int level;
+	
+	private int level;
 	private static Levels adm;
-
+	
 	private Levels() {
-		level = 1;
+			level = 1;
 	}
-
-	// Static Singleton
+	
 	public static Levels getAdmin() {
-		if (adm == null) {
+		if(adm == null) {
 			adm = new Levels();
 		}
-
+		
 		return adm;
 	}
-
-	// Aumenta el nivel
+	//Aumenta el nivel 
 	public int up() {
-		return (level < 20) ? ++level : level;
+		return (level < 3)? ++level : level;
 	}
-
-	// Reduce el nivel
+	
+	//Reduce el nivel
 	public int down() {
-		return (level > 1) ? --level : level;
+		return (level > 2)? --level: level;
 	}
-
-	// Resetea el nivel
+	
+	
+	//Resetea el nivel
 	public void reset() {
 		level = 1;
 	}
@@ -46,5 +46,4 @@ public class Levels implements Uppers{
 	public void close() {
 		adm = null;		
 	}
-
 }

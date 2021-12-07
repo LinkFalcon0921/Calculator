@@ -6,10 +6,8 @@ import com.base.Opers.*;
 public class OpersGetter {
 
 	
-	/**
-	 * Toma el nivel otorgado para crear un nuevo operados de calculos Luego
-	 * sera enviado por el sistema.
-	 */
+	//Toma el nuvel del otorgado para crear un nuevo operados de calculos 
+	//Luego sera enviado por el sistema.
 	public static OpersDoubles Create(int levels) {
 		
 		OpersDoubles obj = null; 
@@ -30,6 +28,7 @@ public class OpersGetter {
 			case 4:
 				obj = new DivideMates();
 				break;
+				
 				
 				default:
 					//settable
