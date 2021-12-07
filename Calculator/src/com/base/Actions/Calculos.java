@@ -2,6 +2,7 @@ package com.base.Actions;
 
 import com.base.Actions.helpers.OpersGetter;
 import com.base.Interfaces.OpersDoubles;
+import com.base.User.Intentos;
 import com.base.User.Levels;
 
 /**
@@ -13,7 +14,7 @@ public class Calculos {
 	private int pointer;
 
 	public Calculos() {
-
+		
 	}
 
 	/**
@@ -28,16 +29,17 @@ public class Calculos {
 	 */
 	public void createOperation() {
 
-		int level = CalculosLevels.getAdmin().levelOperation(Levels.getAdmin().level());
+		int level = CalculosLevels.getAdmin().levelOperation(Levels.getAdmin().value());
 
 		if (!equalsPointer(level)) {
 
 			operation = OpersGetter.Create(level);
+			operation.replace(Levels.getAdmin().value());
 			pointer = level;
 
 		} else {
 
-			operation.replace(Levels.getAdmin().level() * 10);
+			operation.replace(Levels.getAdmin().value() * 10);
 
 		}
 
@@ -51,7 +53,9 @@ public class Calculos {
 		if(operation.getResult().doubleValue() == result) {
 			createOperation();
 			return true;
-		}	
+		}else {
+			Intentos.getAdmin().down();
+		}
 		
 		return false;
 	}
@@ -60,13 +64,15 @@ public class Calculos {
 	 * Metodo validador de operaciones. Valida si fue correcto el resultado del
 	 * usuario ante la operacion.
 	 * @param result : Valor ingresado por el usuario.
-	 * 
 	 */
 	public boolean validate(int result) {
 		if(operation.getResult().intValue() == result) {
 			createOperation();
 			return true;
-		}	
+		}else {
+			Intentos.getAdmin().down();
+			System.out.println("Entro!");
+		}
 		
 		return false;
 	}
@@ -80,4 +86,14 @@ public class Calculos {
 		return pointer == lv;
 	}
 
+	/**
+	 * 
+	 * Devuelve la operacion con sus valores:
+	 * <br/><br/>
+	 * Valores principales, signo relacionado y su resultado.
+	 */
+	public OpersDoubles getOperation() {
+		return operation;
+	}
+	
 }

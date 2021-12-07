@@ -1,6 +1,8 @@
 package com.base.User;
 
-public class Levels {
+import com.base.Interfaces.Uppers;
+
+public class Levels implements Uppers{
 
 	private static int level;
 	private static Levels adm;
@@ -33,9 +35,16 @@ public class Levels {
 		level = 1;
 	}
 
-	// Obtener el nivel
-	public int level() {
+	/**
+	 * Cierra la clase.
+	 */
+	public int value() {
 		return level;
+	}
+
+	@Override
+	public void close() {
+		adm = null;		
 	}
 
 }
