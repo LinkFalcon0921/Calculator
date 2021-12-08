@@ -27,8 +27,9 @@ public class IconsSetters {
 	 * @param icon : Nombre de signo.
 	 */
 	public Icon setIcon(Sign icon) {
-		Icon op = new ImageIcon(imageSite.concat("\\".concat(icon.getName()).concat(".png")));
-		System.out.println(imageSite.concat("\\".concat(icon.getName()).concat(".png")));
+		String iconi = imageSite.concat("\\".concat(icon.getName()).concat(".png"));
+		Icon op = new ImageIcon(iconi);
+		System.out.println(new File(iconi).exists());
 		
 		return op;
 	}

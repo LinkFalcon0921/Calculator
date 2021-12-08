@@ -82,7 +82,7 @@ public class PActions extends JPanel {
 	
 	/**
 	 * Icono relacionado a la operacion.
-	 * @param icon : icono a asignar.
+	 * @param icon icono a asignar.
 	 */
 	public void setLabelSY(Icon icon) {
 		if(icon == null)
