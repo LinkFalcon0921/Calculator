@@ -22,7 +22,7 @@ public class Levels implements Uppers{
 	//Aumenta el nivel
 	@Override
 	public int up() {
-		return (level < 10)? ++level : level;
+		return (level < 11)? ++level : level;
 	}
 
 	//Reduce el nivel
@@ -31,23 +31,27 @@ public class Levels implements Uppers{
 		return (level > 2)? --level: level;
 	}
 
-
 	//Resetea el nivel
 	@Override
 	public void reset() {
 		level = 1;
 	}
 
-	/**
-	 * Cierra la clase.
-	 */
+	
 	@Override
 	public int value() {
 		return level;
 	}
-
+	
+	/**
+	 * Cierra la clase.<br/>Debe cerrarse cada vez que Calculos cierre.
+	 */
 	@Override
 	public void close() {
-		adm = null;
+		try {
+			adm = null;
+		}catch(NullPointerException e) {
+		
+		}
 	}
 }

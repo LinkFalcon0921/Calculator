@@ -24,7 +24,6 @@ public class ActionKeyPressed implements KeyListener {
 	}
 
 	public ActionKeyPressed(BaseApp base) {
-
 		bases = base;
 
 		bases.getUsers().setSpacesInt(bases.getOpers());

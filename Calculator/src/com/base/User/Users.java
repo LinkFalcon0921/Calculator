@@ -16,6 +16,9 @@ public class Users {
 
 	public Users(String nameUser) {
 		values = new Calculos();
+
+		if(nameUser == null)
+			this.nameUser = nameUser;
 	}
 
 	/**
@@ -59,11 +62,14 @@ public class Users {
 	 * */
 	public void setSpacesDouble(POperation panel) {
 
+		try {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				OpersDoubles value = values.getOperation();
+				//NIveles
 				String lv = String.valueOf(Levels.getAdmin().value());
+				//Intentos
 				String ty = String.valueOf(Intentos.getAdmin().value());
 				com.base.GUI.panels.PActions actions = panel.getActionsPane();
 
@@ -79,6 +85,10 @@ public class Users {
 				actions.setLabelSY(IconsSetters.getAdmin().setIcon(value.getSign()));
 			}
 		}).start();
+		
+		}catch(IllegalThreadStateException e) {
+			setSpacesDouble(panel);
+		}
 
 	}
 
@@ -94,7 +104,9 @@ public class Users {
 	 * */
 	public void setSpacesInt(POperation panel) {
 
+		try {
 		new Thread(new Runnable() {
+			
 			@Override
 			public void run() {
 				OpersDoubles value = values.getOperation();
@@ -116,17 +128,25 @@ public class Users {
 			}
 		}).start();
 
+		}catch (IllegalThreadStateException e) {
+			setSpacesInt(panel);
+		}
+
 	}
 
 	public boolean close() {
 
+		try {
 		if(Intentos.getAdmin().value() == 0) {
 
 			Intentos.getAdmin().close();
 			Levels.getAdmin().close();
-			values = null;
+			values.close();
 
 			return true;
+		}
+		}catch(NullPointerException e) {
+			
 		}
 
 		return false;

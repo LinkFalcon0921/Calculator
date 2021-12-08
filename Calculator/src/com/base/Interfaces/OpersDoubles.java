@@ -65,11 +65,11 @@ public abstract class OpersDoubles {
 	public Double getResultDouble() {
 		return Result;
 	}
-	
-	//Obtiene el entero del resultado.
-	public int getResultInt() {
-		return getValA().intValue() + getValB().intValue();
-	}
+
+	/**
+	 * Obtiene el entero del resultado.
+	 */
+	public abstract int getResultInt();
 
 	/**
 	 *  Obtiene la valor del signo en valor int.<br/> Este valor int se puede pasar a char para obtener si valor ASCII.

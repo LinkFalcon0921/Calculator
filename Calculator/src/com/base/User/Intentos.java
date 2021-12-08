@@ -4,11 +4,12 @@ import com.base.Interfaces.Uppers;
 
 public class Intentos implements Uppers{
 
-	private static int trys;
+	private static int trys, countUp;
 	private static Intentos adm;
 
 	private Intentos() {
 		trys = 3;
+		countUp = 0;
 	}
 
 	public static Intentos getAdmin() {
@@ -18,16 +19,21 @@ public class Intentos implements Uppers{
 		return adm;
 	}
 
-	//Sube los intentos
+	//Sube los intentos si logra 3 correctas en consecutivo.
 	@Override
 	public int up() {
-		return (trys < 3) ? ++trys : trys;
+		if(countUp++ == 3)
+			return (trys < 3) ? ++trys : trys;
+		
+		return trys;
 	}
 
 	// Reduce los intentos
 	@Override
 	public int down() {
-		return (trys > 0) ? --trys : trys;
+		countUp = 0;
+		//(trys > 0)
+		return (trys > countUp) ? --trys : trys;
 	}
 
 	// Resetea los intentos
@@ -47,7 +53,11 @@ public class Intentos implements Uppers{
 	 */
 	@Override
 	public void close() {
-		adm = null;
+		try {
+			adm = null;
+		}catch(NullPointerException e) {
+		
+		}
 	}
 
 }

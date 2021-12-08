@@ -18,10 +18,27 @@ public class CalculosLevels {
 		return adm;
 	}
 
+	/**
+	 * Obtienes el valor aleatorio basado en el nivel para obtener la operacion.
+	 */
 	public int levelOperation(int lv) {
-		int level = new Random().nextInt((lv % 4)) + 1;
+
+		int t = (lv % 4) + 1;
+		int level = new Random().nextInt(t) + 1;
 
 		return level;
+	}
+
+	/**
+	 * Cierra la instancia.<br/>Debe hacerse en todo proceso de la clase Calculos
+	 * sea cerrada.
+	 */
+	public void close() {
+		try {
+			adm = null;
+		}catch(NullPointerException e) {
+			
+		}
 	}
 
 }

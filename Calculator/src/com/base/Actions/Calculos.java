@@ -50,13 +50,20 @@ public class Calculos {
 	 * usuario ante la operacion.
 	 */
 	public boolean validate(double result) {
-		if(operation.getResultDouble().doubleValue() == result) {
-			createOperation();
-			return true;
-		}else {
-			Intentos.getAdmin().down();
+		
+		try {
+			if(operation.getResultDouble().doubleValue() == result) {
+				Levels.getAdmin().up();
+				createOperation();
+				return true;
+			}else {
+				Intentos.getAdmin().down();
+			}
+			
+		}catch(Exception e) {
+			return false;
 		}
-
+		
 		return false;
 	}
 
@@ -66,12 +73,21 @@ public class Calculos {
 	 * @param result : Valor ingresado por el usuario.
 	 */
 	public boolean validate(int result) {
-		if(operation.getResultInt() == result) {
-			createOperation();
-			return true;
-		}else {
-			Intentos.getAdmin().down();
-			System.out.println("Entro!");
+		try {
+			if(operation.getResultInt() == result) {
+				
+				Levels.getAdmin().up();
+				Intentos.getAdmin().up();
+				
+				createOperation();
+				return true;
+			
+			}else {
+				Intentos.getAdmin().down();
+			}
+			
+		}catch(Exception e) {
+			return false;
 		}
 
 		return false;
@@ -94,6 +110,15 @@ public class Calculos {
 	 */
 	public OpersDoubles getOperation() {
 		return operation;
+	}
+	
+	/**
+	 * Cierra la instacias internas.
+	 */
+	public void close() {
+		CalculosLevels.getAdmin().close();
+		operation = null;
+		pointer = 0;		
 	}
 
 }

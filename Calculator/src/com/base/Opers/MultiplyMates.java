@@ -17,4 +17,9 @@ public class MultiplyMates extends OpersDoubles {
 			Result = A * B;
 		}
 
+		@Override
+		public int getResultInt() {
+			return getValA().intValue() * getValB().intValue();
+		}
+		
 }
