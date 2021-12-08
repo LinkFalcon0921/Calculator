@@ -12,8 +12,18 @@ public enum Sign {
 		oper = val;
 	}
 
-	public int getName() {
+	/**
+	 *Devuelve le valor numerico del signo.
+	 */
+	public int getNum() {
 		return oper;
+	}
+	
+	/**
+	 *  Devuelve el nombre del signo. 
+	 */
+	public String getName() {
+		return toString();
 	}
 	
 }

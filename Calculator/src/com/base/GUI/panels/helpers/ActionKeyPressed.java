@@ -26,7 +26,7 @@ public class ActionKeyPressed implements KeyListener {
 
 		bases = base;
 
-		bases.getUsers().setSpaces(bases.getOpers());
+		bases.getUsers().setSpacesInt(bases.getOpers());
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class ActionKeyPressed implements KeyListener {
 			if (bases.getUsers().close()) {
 				bases.close();
 			} else {
-				bases.getUsers().setSpaces(bases.getOpers());
+				bases.getUsers().setSpacesInt(bases.getOpers());
 			}
 			
 		} else if (Character.isDigit(e.getKeyChar())) {

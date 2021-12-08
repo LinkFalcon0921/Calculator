@@ -65,10 +65,29 @@ public class PActions extends JPanel {
 	}
 	
 	/**
+	 * Texto del label superior.
+	 * @param val : valor a asignar.
+	 */
+	public void setLabelA(int val) {
+		MY.setText(String.valueOf(val));
+	}
+	
+	/**
+	 * Texto del label inferior.
+	 * @param val : valor a asignar.
+	 */
+	public void setLabelB(int val) {
+		MN.setText(String.valueOf(val));
+	}
+	
+	/**
 	 * Icono relacionado a la operacion.
 	 * @param icon : icono a asignar.
 	 */
 	public void setLabelSY(Icon icon) {
+		if(icon == null)
+		getLabelSign().setText("");
+			
 		getLabelSign().setIcon(icon);
 	}
 	/**

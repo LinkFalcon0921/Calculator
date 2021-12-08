@@ -5,9 +5,7 @@ import java.util.Random;
 import com.base.Actions.helpers.Sign;
 
 public abstract class OpersDoubles {
-	/*
-	 * Valor en orden : A mayor , B menor y RESULT resultado.
-	 */
+	
 	// Valor en orden : mayor , menor e resultado.
 	protected double A, B, Result;
 	protected Sign signo;
@@ -71,7 +69,7 @@ public abstract class OpersDoubles {
 	/**
 	 *  Obtiene la valor del signo en valor int.<br/> Este valor int se puede pasar a char para obtener si valor ASCII. 
 	 */
-	public int getSign() {
-		return signo.getName();
+	public Sign getSign() {
+		return signo;
 	}
 }

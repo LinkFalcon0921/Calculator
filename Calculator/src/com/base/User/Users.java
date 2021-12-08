@@ -1,7 +1,10 @@
 package com.base.User;
 
+import javax.swing.JLabel;
+
 import com.base.Actions.Calculos;
 import com.base.GUI.panels.POperation;
+import com.base.GUI.panels.helpers.IconsSetters;
 import com.base.Interfaces.OpersDoubles;
 
 /**
@@ -56,7 +59,7 @@ public class Users {
 	 *  @param mayor valor : Primer valor (antes del signo). 
 	 *  @param menor valor : Segundo valor (despues del signo).
 	 * */
-	public void setSpaces(POperation panel) {
+	public void setSpacesDouble(POperation panel) {
 		
 		new Thread(new Runnable() {
 			public void run() {
@@ -74,7 +77,42 @@ public class Users {
 				
 				actions.setLabelA(value.getValA().toString());
 				actions.setLabelB(value.getValB().toString());
-			
+				actions.setLabelSY(IconsSetters.getAdmin().setIcon(value.getSign()));
+			}
+		}).start();
+				
+	}
+	
+	/** 
+	 * Metodo que asigna los valores en los contenedores respectivos para cada elemento.
+	 * <br/><br/>
+	 * La clase contenedora debe de tener los sigientes contenedores de texto (Asignar un nombre):
+	 * <br/>
+	 * Se realiza de manera asincronica. 
+	 *  @param level : Nivel del usuario actual.
+	 *  @param mayor valor : Primer valor (antes del signo). 
+	 *  @param menor valor : Segundo valor (despues del signo).
+	 * */
+	public void setSpacesInt(POperation panel) {
+		
+		new Thread(new Runnable() {
+			public void run() {
+				OpersDoubles value = values.getOperation();
+				String lv = String.valueOf(Levels.getAdmin().value());
+				String ty = String.valueOf(Intentos.getAdmin().value());
+				com.base.GUI.panels.PActions actions = panel.getActionsPane(); 
+				
+				
+				//Crear nueva sintesis basada en clase Operacion
+				
+				panel.getLevel().setText(lv);
+				//Arreglar crear clase trys.
+				panel.getTrys().setText(ty);
+				
+				actions.setLabelA(value.getValA().intValue());
+				actions.setLabelB(value.getValB().intValue());
+				actions.setLabelSY(IconsSetters.getAdmin().setIcon(value.getSign()));
+				
 			}
 		}).start();
 				
