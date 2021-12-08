@@ -13,7 +13,7 @@ public class DivideMates extends OpersDoubles {
 		@Override
 		public void replace(int oper) {
 			setValues(oper);
-			
+
 			Result = A / B;
 		}
 

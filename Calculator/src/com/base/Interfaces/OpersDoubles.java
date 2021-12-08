@@ -5,18 +5,18 @@ import java.util.Random;
 import com.base.Actions.helpers.Sign;
 
 public abstract class OpersDoubles {
-	
+
 	// Valor en orden : mayor , menor e resultado.
 	protected double A, B, Result;
 	protected Sign signo;
-	
+
 	protected OpersDoubles() {
 		A = B = Result = 0;
 	}
 
 	// Aplica los valores de reemplazo de variables.
 	protected void setValues(int oper) {
-		
+
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -26,10 +26,10 @@ public abstract class OpersDoubles {
 				// Asigna valores aleatorios basados en el nivel introducido.
 				A = (p.nextDouble() * resource) + 1;
 				B = (p.nextDouble() * resource) + 1;
-				
+
 				A = Math.round(A * 100.0) / 100.0;
 				B = Math.round(B * 100.0) / 100.0;
-				
+
 				chase();
 			}
 		}).start();
@@ -45,7 +45,7 @@ public abstract class OpersDoubles {
 			A = B;
 			B = inter;
 		}
-		
+
 	}
 
 	// Metodo a llamar publicamente para generar los valores de la clase.
@@ -65,9 +65,9 @@ public abstract class OpersDoubles {
 	public Double getResult() {
 		return Result;
 	}
-	
+
 	/**
-	 *  Obtiene la valor del signo en valor int.<br/> Este valor int se puede pasar a char para obtener si valor ASCII. 
+	 *  Obtiene la valor del signo en valor int.<br/> Este valor int se puede pasar a char para obtener si valor ASCII.
 	 */
 	public Sign getSign() {
 		return signo;

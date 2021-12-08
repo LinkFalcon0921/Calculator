@@ -3,6 +3,7 @@ package com.base.GUI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import com.base.GUI.panels.POperation;
 import com.base.User.Users;
@@ -18,6 +19,7 @@ public class BaseApp {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					BaseApp window = new BaseApp();
@@ -43,27 +45,27 @@ public class BaseApp {
 		framebase = new JFrame();
 		framebase.setTitle("My_app_set_title_flintcore");
 		framebase.setBounds(330, 200, 810, 575);
-		framebase.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		framebase.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 		actions = new Users("");
 		actions.CreateOperation();
-		
+
 		basePanel = new POperation();
 		basePanel.getActionsPane().addListenerRS(this);
-		
+
 		framebase.add(basePanel);
-		
+
 	}
-	
-	
+
+
 	public Users getUsers() {
 		return actions;
 	}
-	
+
 	public POperation getOpers() {
 		return basePanel;
 	}
-	
+
 	public void close() {
 		framebase.setVisible(false);
 		framebase.dispose();

@@ -10,6 +10,6 @@ public interface Uppers {
 
 	// Obtener el nivel
 	public int value();
-	
+
 	public void close();
 }

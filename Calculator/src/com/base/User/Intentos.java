@@ -10,7 +10,7 @@ public class Intentos implements Uppers{
 	private Intentos() {
 		trys = 3;
 	}
-	
+
 	public static Intentos getAdmin() {
 		if(adm == null) {
 			adm = new Intentos();
@@ -25,16 +25,19 @@ public class Intentos implements Uppers{
 	}
 
 	// Reduce los intentos
+	@Override
 	public int down() {
 		return (trys > 0) ? --trys : trys;
 	}
 
 	// Resetea los intentos
+	@Override
 	public void reset() {
 		trys = 1;
 	}
 
 	// Obtener el valor
+	@Override
 	public int value() {
 		return trys;
 	}
@@ -46,5 +49,5 @@ public class Intentos implements Uppers{
 	public void close() {
 		adm = null;
 	}
-	
+
 }

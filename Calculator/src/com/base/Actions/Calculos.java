@@ -6,7 +6,7 @@ import com.base.User.Intentos;
 import com.base.User.Levels;
 
 /**
-Clase encargade de mantener contacto con la fachada principal y las variables de operacion. 
+Clase encargade de mantener contacto con la fachada principal y las variables de operacion.
 */
 public class Calculos {
 	// Variables de la clase a uso de Fachada.
@@ -14,7 +14,7 @@ public class Calculos {
 	private int pointer;
 
 	public Calculos() {
-		
+
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class Calculos {
 	 * <br/>
 	 * En caso de que requiera cambiar el puntero solo remplaza las variables dentro
 	 * de la clase.
-	 * 
+	 *
 	 */
 	public void createOperation() {
 
@@ -56,7 +56,7 @@ public class Calculos {
 		}else {
 			Intentos.getAdmin().down();
 		}
-		
+
 		return false;
 	}
 
@@ -73,13 +73,13 @@ public class Calculos {
 			Intentos.getAdmin().down();
 			System.out.println("Entro!");
 		}
-		
+
 		return false;
 	}
 
 	/**
 	 * Verificar si es el mismo operador vasado en el nivel aplicado.
-	 * 
+	 *
 	 * @param lv : nivel de operacion.
 	 */
 	private boolean equalsPointer(int lv) {
@@ -87,7 +87,7 @@ public class Calculos {
 	}
 
 	/**
-	 * 
+	 *
 	 * Devuelve la operacion con sus valores:
 	 * <br/><br/>
 	 * Valores principales, signo relacionado y su resultado.
@@ -95,5 +95,5 @@ public class Calculos {
 	public OpersDoubles getOperation() {
 		return operation;
 	}
-	
+
 }

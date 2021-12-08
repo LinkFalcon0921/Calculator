@@ -5,9 +5,9 @@ public enum Sign {
 	MINUS(45),
 	MULTIPLY(158),
 	DIVIDE(246);
-	
+
 	private int oper;
-	
+
 	Sign(int val) {
 		oper = val;
 	}
@@ -18,12 +18,12 @@ public enum Sign {
 	public int getNum() {
 		return oper;
 	}
-	
+
 	/**
-	 *  Devuelve el nombre del signo. 
+	 *  Devuelve el nombre del signo.
 	 */
 	public String getName() {
 		return toString();
 	}
-	
+
 }

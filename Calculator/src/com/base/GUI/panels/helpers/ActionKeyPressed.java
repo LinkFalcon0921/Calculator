@@ -1,17 +1,18 @@
 package com.base.GUI.panels.helpers;
 
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JLabel;
 
 import com.base.GUI.BaseApp;
 import com.base.GUI.panels.POperation;
 
-import java.awt.Color;
-
 /**
  * Clase encargada de manejar todas la accion de implementacion. Toma y verifica
  * la informacion ingresada por el usuario.<br/>
- * 
+ *
  */
 public class ActionKeyPressed implements KeyListener {
 
@@ -57,7 +58,7 @@ public class ActionKeyPressed implements KeyListener {
 			} else {
 				bases.getUsers().setSpacesInt(bases.getOpers());
 			}
-			
+
 		} else if (Character.isDigit(e.getKeyChar())) {
 			addText(e.getKeyChar());
 		} else if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
@@ -95,7 +96,7 @@ public class ActionKeyPressed implements KeyListener {
 		}
 	}
 
-	
+
 	//Agregar valor al texto
 	private void addText(char val) {
 		// Asigna el valor en el label.
