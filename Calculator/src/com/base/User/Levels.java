@@ -22,7 +22,7 @@ public class Levels implements Uppers{
 	//Aumenta el nivel
 	@Override
 	public int up() {
-		return (level < 3)? ++level : level;
+		return (level < 10)? ++level : level;
 	}
 
 	//Reduce el nivel

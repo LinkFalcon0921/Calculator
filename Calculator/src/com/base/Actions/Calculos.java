@@ -50,7 +50,7 @@ public class Calculos {
 	 * usuario ante la operacion.
 	 */
 	public boolean validate(double result) {
-		if(operation.getResult().doubleValue() == result) {
+		if(operation.getResultDouble().doubleValue() == result) {
 			createOperation();
 			return true;
 		}else {
@@ -66,7 +66,7 @@ public class Calculos {
 	 * @param result : Valor ingresado por el usuario.
 	 */
 	public boolean validate(int result) {
-		if(operation.getResult().intValue() == result) {
+		if(operation.getResultInt() == result) {
 			createOperation();
 			return true;
 		}else {

@@ -95,7 +95,7 @@ public class PActions extends JPanel {
 	 * @param icon icono a asignar.
 	 */
 	public void setLabelSY(Icon icon) {
-		if(icon == null)
+		if(icon != null)
 		getLabelSign().setText("");
 
 		getLabelSign().setIcon(icon);

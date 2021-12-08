@@ -13,7 +13,8 @@ public class IconsSetters {
 	private String imageSite;
 
 	private IconsSetters() {
-		imageSite = new File("base\\Images").getAbsolutePath();
+		//Buscar mejor forma de buscar carpetas.
+		imageSite = new File("src\\com\\base\\Imagenes").getAbsolutePath();
 	}
 
 	public static IconsSetters getAdmin() {
@@ -32,7 +33,6 @@ public class IconsSetters {
 	public Icon setIcon(Sign icon) {
 		String iconi = imageSite.concat("\\".concat(icon.getName()).concat(".png"));
 		Icon op = new ImageIcon(iconi);
-
 
 		return op;
 	}

@@ -51,19 +51,24 @@ public abstract class OpersDoubles {
 	// Metodo a llamar publicamente para generar los valores de la clase.
 	public abstract void replace(int oper);
 
-	// Obtener el primer valor
+	// Obtener el primer valor.
 	public Double getValA() {
 		return A;
 	}
 
-	// Obtener el segundo valor
+	// Obtener el segundo valor.
 	public Double getValB() {
 		return B;
 	}
 
-	// Obtener el resultado
-	public Double getResult() {
+	// Obtener el resultado.
+	public Double getResultDouble() {
 		return Result;
+	}
+	
+	//Obtiene el entero del resultado.
+	public int getResultInt() {
+		return getValA().intValue() + getValB().intValue();
 	}
 
 	/**

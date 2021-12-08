@@ -46,7 +46,7 @@ public class ActionKeyPressed implements KeyListener {
 			// Verifica el valor de resultado.
 			Double val = Double.valueOf(rs.getText());
 
-			if (val.doubleValue() % val.intValue() == 0) {
+			if (val.doubleValue() % val.intValue() != 0) {
 				wrColor(val.doubleValue());
 			} else {
 				wrColor(val.intValue());
